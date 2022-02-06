@@ -3,8 +3,6 @@
 #. ~/.nvm/nvm.sh
 COMPRESSED_NAME="solc-build.tar.gz"
 # the files to compile
-#
-
 # LOCAL MACHINE ONLY the default path
 BUILDPATH=$HOME/Documents/b95/Lotkeno
 FACTORY=$HOME/Documents/piplines/factoryabi

@@ -1,0 +1,11 @@
+node_modules
+.idea/
+build/*
+data
+.nuxt
+dist
+.DS_Store
+private/
+__pycache__/
+**/__pycache__
+**/node_modules

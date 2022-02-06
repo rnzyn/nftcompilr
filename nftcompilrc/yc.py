@@ -79,7 +79,7 @@ class NFTLayerComposite(NFTHelper):
 
         print(self._json)
 
-    def compsite(self):
+    def composite(self):
         """
         This method is to building the layer of pictures from the given parameters.
         :return:
