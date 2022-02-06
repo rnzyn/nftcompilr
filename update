@@ -1,0 +1,11 @@
+#!/bin/sh
+. ./h
+VERSION=$(cat version)
+increment_version $VERSION > version
+VERSION=$(cat version)
+
+#backup_deploy
+#exit;
+
+gitpush
+

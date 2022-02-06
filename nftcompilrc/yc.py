@@ -1,6 +1,7 @@
+"""Transaction parameters for use with contract wrappers."""
+
 import os
 import re
-import json
 
 """
 
@@ -72,7 +73,6 @@ class NFTLayerComposite(NFTHelper):
                     metadata["attack"] = 100.00
                     layer["variants"].append(metadata)
 
-
                 print(f"The files are {p}")
 
                 self._json.append(layer)
@@ -86,6 +86,3 @@ class NFTLayerComposite(NFTHelper):
         """
         pass
 
-
-instance = NFTLayerComposite()
-instance.inputFolder("/Users/a/Desktop/gamef")
