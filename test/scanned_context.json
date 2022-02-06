@@ -1,1 +1,59 @@
-[{"variants": [], "layer": "5-lsc"}, {"variants": [{"_file": "bella84429_241325075_168289605441153_5196847243719554169_n.jpg", "name": "bella84429_241325075_168289605441153_5196847243719554169_n", "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_241325075_168289605441153_5196847243719554169_n.jpg", "attack": 100.0}, {"_file": "bella84429_244638262_226523469539841_6218273119324468793_n.jpg", "name": "bella84429_244638262_226523469539841_6218273119324468793_n", "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_244638262_226523469539841_6218273119324468793_n.jpg", "attack": 100.0}, {"_file": "bella84429_242623968_543723650221591_8371120393470059647_n.jpg", "name": "bella84429_242623968_543723650221591_8371120393470059647_n", "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_242623968_543723650221591_8371120393470059647_n.jpg", "attack": 100.0}, {"_file": "bella84429_242594904_380494363575960_159707088653165485_n.jpg", "name": "bella84429_242594904_380494363575960_159707088653165485_n", "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_242594904_380494363575960_159707088653165485_n.jpg", "attack": 100.0}, {"_file": "bella84429_244966157_197073595883540_3382510236097804396_n.jpg", "name": "bella84429_244966157_197073595883540_3382510236097804396_n", "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_244966157_197073595883540_3382510236097804396_n.jpg", "attack": 100.0}, {"_file": "bella84429_241825557_1270009153427463_4927570060492018208_n.jpg", "name": "bella84429_241825557_1270009153427463_4927570060492018208_n", "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_241825557_1270009153427463_4927570060492018208_n.jpg", "attack": 100.0}], "layer": "1-bg"}, {"variants": [], "layer": "3-body"}, {"variants": [], "layer": "2-hbg"}, {"variants": [], "layer": "4-head"}]
+[
+  {
+    "variants": [
+      {
+        "_file": "bella84429_241325075_168289605441153_5196847243719554169_n.jpg",
+        "name": "bella84429_241325075_168289605441153_5196847243719554169_n",
+        "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_241325075_168289605441153_5196847243719554169_n.jpg",
+        "attribute": []
+      },
+      {
+        "_file": "bella84429_244638262_226523469539841_6218273119324468793_n.jpg",
+        "name": "bella84429_244638262_226523469539841_6218273119324468793_n",
+        "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_244638262_226523469539841_6218273119324468793_n.jpg",
+        "attribute": []
+      },
+      {
+        "_file": "bella84429_242623968_543723650221591_8371120393470059647_n.jpg",
+        "name": "bella84429_242623968_543723650221591_8371120393470059647_n",
+        "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_242623968_543723650221591_8371120393470059647_n.jpg",
+        "attribute": []
+      },
+      {
+        "_file": "bella84429_242594904_380494363575960_159707088653165485_n.jpg",
+        "name": "bella84429_242594904_380494363575960_159707088653165485_n",
+        "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_242594904_380494363575960_159707088653165485_n.jpg",
+        "attribute": []
+      },
+      {
+        "_file": "bella84429_244966157_197073595883540_3382510236097804396_n.jpg",
+        "name": "bella84429_244966157_197073595883540_3382510236097804396_n",
+        "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_244966157_197073595883540_3382510236097804396_n.jpg",
+        "attribute": []
+      },
+      {
+        "_file": "bella84429_241825557_1270009153427463_4927570060492018208_n.jpg",
+        "name": "bella84429_241825557_1270009153427463_4927570060492018208_n",
+        "_path": "/Users/hesdx/Documents/b95/nftcompilr/test/bb/1-bg/bella84429_241825557_1270009153427463_4927570060492018208_n.jpg",
+        "attribute": []
+      }
+    ],
+    "layer": "1-bg"
+  },
+  {
+    "variants": [],
+    "layer": "2-hbg"
+  },
+  {
+    "variants": [],
+    "layer": "3-body"
+  },
+  {
+    "variants": [],
+    "layer": "4-head"
+  },
+  {
+    "variants": [],
+    "layer": "5-lsc"
+  }
+]

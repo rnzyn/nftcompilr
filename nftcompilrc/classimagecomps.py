@@ -1,0 +1,2 @@
+from nftcompilrc import NFTBase
+

@@ -2,8 +2,11 @@
 import codecs
 import json
 import os
+import random
 import re
 import time
+from dataclasses import dataclass
+from web3 import Web3
 
 """
 
@@ -33,6 +36,12 @@ def writeFile(content, filename):
     fo.write(content)
     fo.close()
     print(statement.format(time.ctime(), filename))
+
+
+@dataclass
+class NFTBase:
+    dna: str
+    composition: dict
 
 
 class FileOp:
@@ -72,8 +81,8 @@ class NFTLayerComposite(FileOp):
                     folder_list.append(r)
 
                 folder_list.sort(key=lambda f: int(re.sub('\D', '', f)))
-
-            # print(folder_list)
+                print("folder list is here")
+                print(folder_list)
             else:
                 layer = dict()
                 layer["variants"] = list()
@@ -89,14 +98,31 @@ class NFTLayerComposite(FileOp):
                     metadata["_file"] = file
                     metadata["name"] = file.split(".")[0]
                     metadata["_path"] = os.path.join(i, file)
-                    metadata["attack"] = 100.00
+                    metadata["attribute"] = self.configDataFromFileName(file)
                     layer["variants"].append(metadata)
 
-                # print(f"The files are {p}")
+                temp.append(layer)
 
-                self._json.append(layer)
+        for order_f in folder_list:
+            for layer in temp:
+                if layer["layer"] == order_f:
+                    self._json.append(layer)
 
         print(self._json)
+
+    def configDataFromFileName(self, string_file_data: str) -> dict:
+        """
+              "attributes": [
+                {
+                    "trait_type": "cuteness",
+                    "value": 100
+                }
+            ]
+
+        :param string_file_data:
+        :return:
+        """
+        return []
 
     def compositeContext(self, path: str):
         """
@@ -105,7 +131,42 @@ class NFTLayerComposite(FileOp):
         """
         self.StoreJson(self._json, path)
 
-    def compositeDNA(self):
-        if self._json == []:
+    def _checkJsonContext(self):
+        if len(self._json) == 0:
             print("There is no context loaded.")
             exit(0)
+
+    def compositeDNA(self):
+        self._checkJsonContext()
+
+    def recoverFrom(self, context_file: str):
+        self._json = self.LoadJson2Dict(context_file)
+
+    def genDNA(self, items: list) -> str:
+        message = "|".join(items)
+        ss = Web3.sha3(text=message)
+        return Web3.toHex(ss)
+
+    def GetRandomRen(self) -> NFTBase:
+        self._checkJsonContext()
+        new_dna = []
+        compile_list = []
+        for order_f in self._json:
+            if "variants" in order_f and len(order_f["variants"]) > 0:
+                layer_attr = random.choices(order_f["variants"])[0]
+                if "name" in layer_attr:
+                    new_dna.append(layer_attr["name"])
+                compile_list.append(layer_attr)
+
+        n = NFTBase()
+        n.dna = self.genDNA(new_dna)
+        n.composition = compile_list
+
+        return n
+
+class ImageComposite:
+    def __init__(self, image_attri: NFTBase):
+        self._taken_from = image_attri
+
+    def genByFixSize(self, w: int, h: int):
+        pass
