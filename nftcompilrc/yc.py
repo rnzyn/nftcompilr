@@ -1,7 +1,9 @@
 """Transaction parameters for use with contract wrappers."""
-
+import codecs
+import json
 import os
 import re
+import time
 
 """
 
@@ -23,15 +25,28 @@ import re
 
 """
 
+statement = 'End : {}, IO File {}'
 
-class NFTHelper:
+
+def writeFile(content, filename):
+    fo = open(filename, "w")
+    fo.write(content)
+    fo.close()
+    print(statement.format(time.ctime(), filename))
+
+
+class FileOp:
+    def LoadJson2Dict(self, path: any) -> dict:
+        return json.load(codecs.open(path, 'r', 'utf-8-sig'))
+
+    def StoreJson(self, pre_dump: any, filepath: str):
+        writeFile(json.dumps(pre_dump, ensure_ascii=False), filepath)
+
+
+class NFTLayerComposite(FileOp):
     def __init__(self):
-        # self.a = ...
-        pass
-
-
-class NFTLayerComposite(NFTHelper):
-    def __init__(self):
+        self._ignore = ["node_modules",
+                        ".DS_Store"]
         self._path = ""
         self._preFolder = []
         self._json = []
@@ -66,23 +81,31 @@ class NFTLayerComposite(NFTHelper):
                 folder = i
                 print(f"scan the child files for this folder {folder} and the name is {os.path.basename(i)}")
                 for file in p:
+                    if file in self._ignore:
+                        print("ignore this")
+                        continue
+
                     metadata = dict()
-                    metadata["file"] = p
-                    metadata["name"] = str.split(".", file)[0]
-                    metadata["path"] = os.path.join(i, file)
+                    metadata["_file"] = file
+                    metadata["name"] = file.split(".")[0]
+                    metadata["_path"] = os.path.join(i, file)
                     metadata["attack"] = 100.00
                     layer["variants"].append(metadata)
 
-                print(f"The files are {p}")
+                # print(f"The files are {p}")
 
                 self._json.append(layer)
 
         print(self._json)
 
-    def composite(self):
+    def compositeContext(self, path: str):
         """
         This method is to building the layer of pictures from the given parameters.
         :return:
         """
-        pass
+        self.StoreJson(self._json, path)
 
+    def compositeDNA(self):
+        if self._json == []:
+            print("There is no context loaded.")
+            exit(0)
