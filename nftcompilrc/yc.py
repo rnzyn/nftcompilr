@@ -1,13 +1,11 @@
 """Transaction parameters for use with contract wrappers."""
-import codecs
-import json
 import os
 import random
 import re
-import time
-from dataclasses import dataclass
 
 from web3 import Web3
+
+from .base import FileOp, NFTBase
 
 """
 
@@ -28,32 +26,6 @@ from web3 import Web3
 ]
 
 """
-
-statement = 'End : {}, IO File {}'
-
-
-def writeFile(content, filename):
-    fo = open(filename, "w")
-    fo.write(content)
-    fo.close()
-    print(statement.format(time.ctime(), filename))
-
-
-@dataclass
-class NFTBase:
-    dna: str
-    composition: dict
-
-    def __init__(self):
-        pass
-
-
-class FileOp:
-    def LoadJson2Dict(self, path: any) -> dict:
-        return json.load(codecs.open(path, 'r', 'utf-8-sig'))
-
-    def StoreJson(self, pre_dump: any, filepath: str):
-        writeFile(json.dumps(pre_dump, ensure_ascii=False), filepath)
 
 
 class NFTLayerComposite(FileOp):
@@ -167,15 +139,3 @@ class NFTLayerComposite(FileOp):
         n.composition = compile_list
 
         return n
-
-
-class ImageComposite:
-    def __init__(self, image_attri: NFTBase):
-        self._taken_from = image_attri
-
-    def showLog(self):
-        print(self._taken_from.composition)
-        print(self._taken_from.dna)
-
-    def genByFixSize(self, w: int, h: int):
-        pass
