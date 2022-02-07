@@ -88,8 +88,6 @@ class ImageComposite(FileOp):
         pass
 
     def pngfit(self) -> None:
-        if self._pre() is True:
-            return
             # $HOME/go/bin/pngquant -i "$f" -o "${f%.*}_.png"
         try:
             if shutil.which("pngquant") is not None:

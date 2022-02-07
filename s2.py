@@ -18,7 +18,6 @@ class Comps(ImageComposite):
 
 instance = NFTLayerComposite()
 instance.recoverFrom("/Users/hesdx/Documents/b95/nftcompilr/test/scanned_context.json")
-instance.compositeDNA()
 
 for n in range(1000):
     p = Comps(instance.GetRandomRen())
