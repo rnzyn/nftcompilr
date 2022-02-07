@@ -6,6 +6,7 @@ import random
 import re
 import time
 from dataclasses import dataclass
+
 from web3 import Web3
 
 """
@@ -42,6 +43,9 @@ def writeFile(content, filename):
 class NFTBase:
     dna: str
     composition: dict
+
+    def __init__(self):
+        pass
 
 
 class FileOp:
@@ -164,9 +168,14 @@ class NFTLayerComposite(FileOp):
 
         return n
 
+
 class ImageComposite:
     def __init__(self, image_attri: NFTBase):
         self._taken_from = image_attri
+
+    def showLog(self):
+        print(self._taken_from.composition)
+        print(self._taken_from.dna)
 
     def genByFixSize(self, w: int, h: int):
         pass
