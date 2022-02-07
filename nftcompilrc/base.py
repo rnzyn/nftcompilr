@@ -1,23 +1,20 @@
 import codecs
-import glob
-import itertools as it
 import json
-import sys
 import time
 from dataclasses import dataclass
+
 
 @dataclass
 class NFTBase:
     dna: str
     composition: dict
+    attributions: dict
 
     def __init__(self):
         pass
 
 
-
 statement = 'End : {}, IO File {}'
-
 
 
 def writeFile(content, filename):
