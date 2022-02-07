@@ -60,21 +60,26 @@ class NFTLayerComposite(FileOp):
                 print("folder list is here")
                 print(folder_list)
             else:
+                layer_name = os.path.basename(i)
                 layer = dict()
                 layer["variants"] = list()
-                layer["layer"] = os.path.basename(i)
+                layer["layer"] = layer_name
+                nameplace = re.sub('\d+-', '', layer_name)
                 folder = i
-                print(f"scan the child files for this folder {folder} and the name is {os.path.basename(i)}")
+                print(f"scan the child files for this folder {folder} and the name is {nameplace}")
                 for file in p:
                     if file in self._ignore:
                         print("ignore this")
                         continue
 
                     metadata = dict()
-                    metadata["_file"] = file
-                    metadata["name"] = file.split(".")[0]
-                    metadata["_path"] = os.path.join(i, file)
-                    metadata["attribute"] = self.configDataFromFileName(file)
+                    raw_file = file
+                    name_place = file.split(".")[0]
+
+                    metadata["_file"] = raw_file
+                    metadata["name"] = name_place
+                    metadata["_path"] = os.path.join(i, raw_file)
+                    metadata["attribute"] = self.configDataFromFileName(name_place, nameplace)
                     layer["variants"].append(metadata)
 
                 temp.append(layer)
@@ -86,7 +91,7 @@ class NFTLayerComposite(FileOp):
 
         print(self._json)
 
-    def configDataFromFileName(self, string_file_data: str) -> dict:
+    def configDataFromFileName(self, string_file_data: str, name: str) -> dict:
         """
               "attributes": [
                 {
